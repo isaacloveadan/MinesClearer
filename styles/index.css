@@ -33,11 +33,11 @@
 }
 .showboom {
     background-size: cover;
-    background-image:url('./images/zhadan.jpeg');
+    background-image:url('../images/zhadan.jpeg');
 }
 .marked {
     background-size: cover;
-    background-image:url('./images/qizi.jpeg');
+    background-image:url('../images/qizi.jpeg');
 }
 /* .mines:hover {
     background-color: lightsteelblue;

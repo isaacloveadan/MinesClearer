@@ -45,7 +45,7 @@ window.onload = function() {
     function expand(item) {
         // 先展开当前格子
         expandItem(item.dataset.location);
-        var around = window[item.dataset.location];
+        var around = window.mines[item.dataset.location];
         // 循环当前格子周围的格子
         for (let a = 0; a < around.length; a ++) {
             var i = document.querySelector(`.mines[data-location="${around[a]}"]`)
@@ -62,7 +62,7 @@ window.onload = function() {
     function leftClickOpened(item) {
         const num = item.dataset.around;
         // 拿到当前格子周围的格子坐标
-        const arounds = window[item.dataset.location];
+        const arounds = window.mines[item.dataset.location];
         var total = 0;
         // 拿到周围格子的雷总数
         for (let i = 0; i < arounds.length; i ++) {
@@ -125,7 +125,7 @@ window.onload = function() {
         // 如果是左键点击
         if (e.button == '0') {
             // 如果是正常模式
-            if (window.mode == 'normal') {
+            if (window.mines.mode == 'normal') {
                 leftClick(item);
             } else {
                 // 如果是插旗模式
@@ -142,7 +142,7 @@ window.onload = function() {
         } else {
             // 如果是右键点击
             // 如果是正常模式
-            if (window.mode == 'normal') {
+            if (window.mines.mode == 'normal') {
                 rightClick(item)
             }
         }
@@ -182,7 +182,7 @@ window.onload = function() {
                 booms += 1;
             }
             // 设置雷总数
-            window.total = booms;
+            window.mines.total = booms;
             document.getElementsByClassName('booms')[0].innerText = `0/${booms}`;
             // 给每个格子添加点击事件
             mines.addEventListener('mouseup', handleMinesClick)
@@ -216,7 +216,7 @@ window.onload = function() {
                         }
                     }
                 }
-                window[location] = aroundArray;
+                window.mines[location] = aroundArray;
                 for (let a = 0; a < aroundArray.length; a ++) {
                     var arounditem = document.querySelector(`.mines[data-location="${aroundArray[a]}"]`);
                     try {
@@ -242,18 +242,19 @@ window.onload = function() {
     // 改变模式事件
     function changeMode() {
         var modeDom = document.getElementsByClassName('mode')[0];
-        if (window.mode == 'normal') {
-            window.mode = 'flag';
+        if (window.mines.mode == 'normal') {
+            window.mines.mode = 'flag';
             modeDom.innerText = '模式: 插旗';
         } else {
-            window.mode = 'normal';
+            window.mines.mode = 'normal';
             modeDom.innerText = '模式: 正常';
         }
     }
     // 初始化函数
     function init() {
+        window.mines = {};
         // 初始化定义模式
-        window.mode = 'normal';
+        window.mines.mode = 'normal';
         // 给开始和重启添加点击事件
         document.getElementsByClassName('start')[0].addEventListener('click', handleStart);
         // 给模式切换添加点击事件

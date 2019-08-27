@@ -5,26 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/tetris.css">
 </head>
 <body>
-    <div class="header">
-        <div style="visibility: hidden" class="showboom"></div>
-        <div style="visibility: hidden" class="marked"></div>
-        <div class="booms">
+    <div class="minesClearer">
+        <div class="header">
+                <div style="visibility: hidden" class="showboom"></div>
+                <div style="visibility: hidden" class="marked"></div>
+                <div class="booms"></div>
+                <div class="start">
+                    Start/Restart
+                </div>
+                <div class="mode">
+                    模式: 正常
+                </div>
+            </div>
+            <div class="mainContent"></div>
+    </div>
+    <div class="Tetris">
+        <div class="startFrame">
+            <div class="tetris_title">
+                Tetris
+            </div>
+            <div class="tetris_startButton">
+                Start
+            </div>
+        </div>
+        <div class="gameFrame">
 
-        </div>
-        <div class="start">
-            Start/Restart
-        </div>
-        <div class="mode">
-            模式: 正常
         </div>
     </div>
-    <div class="mainContent">
-
-    </div>
-
-    <script src="./index.js"></script>
+    <script src="./scripts/index.js"></script>
+    <script src="./scripts/tetris.js"></script>
 </body>
 </html>

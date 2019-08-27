@@ -1,0 +1,43 @@
+.Tetris {
+    width: 501px;
+    height: 800px;
+    background-color: lightblue;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.tetris_title {
+    font-size: 50px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+}
+.tetris_startButton {
+    font-size: 50px;
+    border: 11px solid beige;
+    padding: 10px;
+    cursor: pointer;
+}
+.tetris_block {
+    width: 19px;
+    height: 19px;
+    border: 1px solid black;
+    border-left: none;
+    border-bottom: none;
+    cursor: pointer;
+    outline: none;
+}
+.gameFrame {
+    display: none;
+    width: 100%;
+    height: 100%;
+    /* display: flex; */
+    flex-wrap: wrap;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.newDiamond {
+    background-color: antiquewhite;
+}
