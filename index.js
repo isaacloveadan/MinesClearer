@@ -263,7 +263,18 @@ window.onload = function() {
             　　return false;
         }
     }
+    function preloadImg() {
+        var imgSrcArr = [
+            './images/qizi.jpeg',
+            './images/zhadan.jpeg'
+        ];
+        for (let a = 0; a < imgSrcArr.length; a ++) {
+            var newImg = new Image();
+            newImg.src = imgSrcArr[a];
+        }
+    }
     init();
     initMines();
     initNumber();
+    preloadImg();
 };
