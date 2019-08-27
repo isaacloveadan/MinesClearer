@@ -45,3 +45,6 @@
 .clicked {
     background-color: lightgoldenrodyellow;
 }
+.mode {
+    cursor: pointer;
+}
