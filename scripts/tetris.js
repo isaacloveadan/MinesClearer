@@ -254,11 +254,12 @@ function initLBaseByPostions(old, positions, key) {
         window.tetris.left = 0;
         window.tetris.right = 0;
         window.tetris.top = 0;
-        newPositions.forEach((p) => {
+        (newPositions.length > 0 ? newPositions : positions).forEach((p) => {
             if (!p.includes('@') && p.split('-')[0] != '0') {
-                document.querySelector(`.tetris_block[data-location="${p}"]`).classList.remove('newDiamond');
-                document.querySelector(`.tetris_block[data-location="${p}"]`).classList.add('stopDiamond');
-                document.querySelector(`.tetris_block[data-location="${p}"]`).dataset.key = '';
+                var i = document.querySelector(`.tetris_block[data-location="${p}"]`);
+                i.classList.remove('newDiamond');
+                i.classList.add('stopDiamond');
+                i.dataset.key = '';
             }
         })
         // 如果停止滑块下滑的时候 位置信息有负数或者0则游戏结束
