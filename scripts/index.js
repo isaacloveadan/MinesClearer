@@ -13,8 +13,11 @@ window.onload = function() {
     }
     // 失败
     function failed() {
-        alert('玩完了');
+        console.log('玩完了');
         showall();
+        setTimeout(() => {
+            handleStart();
+        }, 1000)
     }
     // 成功
     function success() {
