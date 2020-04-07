@@ -1,0 +1,25 @@
+.class2048 {
+    width: 440px;
+    height: 440px;
+    background: rgb(173, 157, 143);
+}
+.gridItem {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    background: rgb(192,179,163);
+    margin: 5px;
+    margin-bottom: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.num2 {
+    background: rgb(234,221,209);
+}
+.num2:after {
+    content: "2";
+    position: absolute;
+    color: rgb(102,93,84);
+    font-size: 50px;
+}

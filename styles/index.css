@@ -1,3 +1,22 @@
+.tabs {
+    display: flex;
+    width: 50%;
+    border: 1px solid black;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+.tabs-item {
+    flex: 1;
+    text-align: center;
+    padding: 5px 0px;
+}
+.tabs-click {
+    background: cadetblue;
+    color: white;
+}
+.hideSelf {
+    display: none !important;
+}
 .header {
     width: 500px;
     background: lightgoldenrodyellow;
