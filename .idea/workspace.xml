@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f9b47e3-09e5-48b8-8459-62fb3d8f8b94" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/minesClearer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/2048.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/2048.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/2048.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/2048.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,6 +18,7 @@
   <component name="ProjectId" id="1aC7P7VACcHmi07ABsUhQBS0D8f" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="editorconfig.notification" value="null" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -43,7 +44,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1586227694429</updated>
-      <workItem from="1586227696088" duration="6226000" />
+      <workItem from="1586227696088" duration="6767000" />
+      <workItem from="1586499748839" duration="5197000" />
     </task>
     <servers />
   </component>
@@ -55,7 +57,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
