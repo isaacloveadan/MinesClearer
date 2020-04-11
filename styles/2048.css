@@ -23,6 +23,30 @@
 .num8 {
     background: rgb(237, 161, 103)
 }
+.num16 {
+    background: rgb(233,134,77);
+}
+.num32 {
+    background: rgb(222,79,65);
+}
+.num64 {
+    background: rgb(209, 46, 48);
+}
+.num128 {
+    background: rgb(239, 201, 96);
+}
+.num256 {
+    background: rgb(239, 201, 96);
+}
+.num512 {
+    background: rgb(239, 201, 96);
+}
+.num1024 {
+    background: rgb(239, 201, 96);
+}
+.num2048 {
+    background: rgb(239, 201, 96);
+}
 .num2:after {
     content: "2";
     position: absolute;
@@ -41,3 +65,52 @@
     color: rgb(102,93,84);
     font-size: 50px;
 }
+.num16:after {
+    content: "16";
+    position: absolute;
+    color: rgb(102,93,84);
+    font-size: 50px;
+}
+.num32:after {
+    content: "32";
+    position: absolute;
+    color: rgb(102,93,84);
+    font-size: 50px;
+}
+.num64:after {
+    content: "64";
+    position: absolute;
+    color: rgb(102,93,84);
+    font-size: 50px;
+}
+.num128:after {
+    content: "128";
+    position: absolute;
+    color: rgb(102,93,84);
+    font-size: 50px;
+}
+.num256:after {
+    content: "256";
+    position: absolute;
+    color: rgb(102,93,84);
+    font-size: 50px;
+}
+.num512:after {
+    content: "512";
+    position: absolute;
+    color: rgb(102,93,84);
+    font-size: 50px;
+}
+.num1024:after {
+    content: "1024";
+    position: absolute;
+    color: rgb(102,93,84);
+    font-size: 50px;
+}
+.num2048:after {
+    content: "2048";
+    position: absolute;
+    color: rgb(102,93,84);
+    font-size: 50px;
+}
+

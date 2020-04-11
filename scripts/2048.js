@@ -56,9 +56,7 @@ function initNewNum() {
   }, 200)
 }
 
-//左方向的事件
-function leftEvent() {
-  let canNew = false;
+function findAllGridWithNum() {
   let hasNum = [];
   // 先找到带有数字的格子
   document.querySelectorAll('.gridItem').forEach(i => {
@@ -66,6 +64,178 @@ function leftEvent() {
       hasNum.push(i);
     }
   });
+  return hasNum;
+}
+
+function rightEvent() {
+  let canNew = false;
+  const hasNum = findAllGridWithNum();
+  const hasCombineArr = [];
+  //再按照同一行 左边排在前面的顺序 排列
+  const sortArry = hasNum.sort((a,b) => {
+    const itemRowA = a.dataset.row;
+    const itemColumnA = a.dataset.column;
+    const itemRowB = b.dataset.row;
+    const itemColumnB = b.dataset.column;
+    if (itemRowA == itemRowB) {
+      if (itemColumnA > itemColumnB) {
+        return -1;
+      } else {
+        return 1;
+      }
+    } else {
+      return 1;
+    }
+  });
+  sortArry.forEach(i => {
+    // 循环判断将这有数字的格子放在最左边没有数字的格子上
+    const itemRow = i.dataset.row;
+    const itemColumn = i.dataset.column;
+    const existNum = i.classList.toString().split(' ').find(i => i.includes('num'));
+    for (let j = 3; j >= 0; j --) {
+      const grid = document.querySelector(`.gridItem[data-row="${itemRow}"][data-column="${j}"]`);
+      // 如果目标格子没有num 或者当前格子本来就在最左边
+      if (!grid.classList.toString().includes('num') || itemColumn == String(j)) {
+        if (itemColumn !== String(j)) {
+          canNew = true;
+        }
+        i.classList.remove(existNum);
+        grid.classList.add(existNum);
+        break;
+      } else if (grid.classList.toString().includes('num') && itemColumn !== String(j)) {
+        //  如果目标格子有num
+        const gridNum = grid.classList.toString().split(' ').find(i => i.includes('num'));
+        // 并且目标格子的num等于当前的num
+        if ((gridNum == existNum) && !hasCombineArr.includes(itemRow)) {
+          canNew = true;
+          i.classList.remove(existNum);
+          const newNum = `num${parseInt(existNum.replace(/[^0-9]/ig,""))*2}`
+          grid.classList.remove(existNum);
+          grid.classList.add(newNum);
+          hasCombineArr.push(itemRow)
+          break;
+        }
+      }
+    }
+  });
+  if (canNew) {
+    initNewNum();
+  }
+}
+
+function downEvent() {
+  let canNew = false;
+  const hasNum = findAllGridWithNum();
+  const hasCombineArr = [];
+  hasNum.sort((a,b) => {
+    const itemRowA = a.dataset.row;
+    const itemColumnA = a.dataset.column;
+    const itemRowB = b.dataset.row;
+    const itemColumnB = b.dataset.column;
+    if (itemColumnA == itemColumnB) {
+      if (itemRowA < itemRowB) {
+        return 1;
+      } else {
+        return -1;
+      }
+    } else {
+      return 1;
+    }
+  }).forEach(i => {
+    // 循环判断将这有数字的格子放在最上面没有数字的格子上
+    const itemRow = i.dataset.row;
+    const itemColumn = i.dataset.column;
+    const existNum = i.classList.toString().split(' ').find(i => i.includes('num'));
+    for (let j = 4; j >= 1; j --) {
+      const grid = document.querySelector(`.gridItem[data-row="${j}"][data-column="${itemColumn}"]`);
+      // 如果目标格子没有num 或者当前格子本来就在最左边
+      if (!grid.classList.toString().includes('num') || itemRow == String(j)) {
+        if (itemRow !== String(j)) {
+          canNew = true;
+        }
+        i.classList.remove(existNum);
+        grid.classList.add(existNum);
+        break;
+      } else if (grid.classList.toString().includes('num') && itemRow !== String(j)) {
+        //  如果目标格子有num
+        const gridNum = grid.classList.toString().split(' ').find(i => i.includes('num'));
+        // 并且目标格子的num等于当前的num
+        if ((gridNum == existNum) && !hasCombineArr.includes(itemColumn)) {
+          canNew = true;
+          i.classList.remove(existNum);
+          const newNum = `num${parseInt(existNum.replace(/[^0-9]/ig,""))*2}`
+          grid.classList.remove(existNum);
+          grid.classList.add(newNum);
+          hasCombineArr.push(itemColumn)
+          break;
+        }
+      }
+    }
+  });
+  if (canNew) {
+    initNewNum();
+  }
+}
+
+function topEvent() {
+  let canNew = false;
+  const hasNum = findAllGridWithNum();
+  const hasCombineArr = [];
+  hasNum.sort((a,b) => {
+    const itemRowA = a.dataset.row;
+    const itemColumnA = a.dataset.column;
+    const itemRowB = b.dataset.row;
+    const itemColumnB = b.dataset.column;
+    if (itemColumnA == itemColumnB) {
+      if (itemRowA < itemRowB) {
+        return a - b;
+      } else {
+        return b - a;
+      }
+    } else {
+      return a - b;
+    }
+  }).forEach(i => {
+    // 循环判断将这有数字的格子放在最上面没有数字的格子上
+    const itemRow = i.dataset.row;
+    const itemColumn = i.dataset.column;
+    const existNum = i.classList.toString().split(' ').find(i => i.includes('num'));
+    for (let j = 1; j < 5; j ++) {
+      const grid = document.querySelector(`.gridItem[data-row="${j}"][data-column="${itemColumn}"]`);
+      // 如果目标格子没有num 或者当前格子本来就在最左边
+      if (!grid.classList.toString().includes('num') || itemRow == String(j)) {
+        if (itemRow !== String(j)) {
+          canNew = true;
+        }
+        i.classList.remove(existNum);
+        grid.classList.add(existNum);
+        break;
+      } else if (grid.classList.toString().includes('num') && itemRow !== String(j)) {
+        //  如果目标格子有num
+        const gridNum = grid.classList.toString().split(' ').find(i => i.includes('num'));
+        // 并且目标格子的num等于当前的num
+        if ((gridNum == existNum) && !hasCombineArr.includes(itemColumn)) {
+          canNew = true;
+          i.classList.remove(existNum);
+          const newNum = `num${parseInt(existNum.replace(/[^0-9]/ig,""))*2}`
+          grid.classList.remove(existNum);
+          grid.classList.add(newNum);
+          hasCombineArr.push(itemColumn)
+          break;
+        }
+      }
+    }
+  });
+  if (canNew) {
+    initNewNum();
+  }
+}
+
+//左方向的事件
+function leftEvent() {
+  let canNew = false;
+  const hasNum = findAllGridWithNum();
+  const hasCombineArr = [];
   //再按照同一行 左边排在前面的顺序 排列
   hasNum.sort((a,b) => {
     const itemRowA = a.dataset.row;
@@ -100,12 +270,13 @@ function leftEvent() {
       //  如果目标格子有num
         const gridNum = grid.classList.toString().split(' ').find(i => i.includes('num'));
         // 并且目标格子的num等于当前的num
-        if (gridNum == existNum) {
+        if ((gridNum == existNum) && !hasCombineArr.includes(itemRow)) {
           canNew = true;
           i.classList.remove(existNum);
           const newNum = `num${parseInt(existNum.replace(/[^0-9]/ig,""))*2}`
           grid.classList.remove(existNum);
           grid.classList.add(newNum);
+          hasCombineArr.push(itemRow)
           break;
         }
       }
@@ -121,8 +292,15 @@ function initOperation() {
   document.onkeydown = function(e) {
     var e=e ? e : window.event;
     var currKey = e.keyCode||e.which||e.charCode;
+    console.log(currKey);
     if (currKey == 37) {
       leftEvent();
+    } else if (currKey == 38) {
+      topEvent();
+    } else if (currKey == 39) {
+      rightEvent();
+    } else if (currKey == 40) {
+      downEvent();
     }
   }
 }
